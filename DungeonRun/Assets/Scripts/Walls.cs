@@ -20,6 +20,7 @@ public class Walls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        meshRenderer.material.mainTextureOffset += new Vector2(-0.1f, 0) * Time.deltaTime * speed;
+        speed = gameManager.gameSpeed;
+        meshRenderer.material.mainTextureOffset += new Vector2(-1f, 0) * Time.deltaTime * speed/10;
     }
 }

@@ -15,6 +15,7 @@ public class Spike : MonoBehaviour
     }
     void Update()
     {
+        moveSpeed = gameManager.gameSpeed;
         // Move the spike down
         transform.Translate(Vector3.back * Time.deltaTime * moveSpeed);
 

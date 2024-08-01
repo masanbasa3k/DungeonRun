@@ -9,6 +9,8 @@ public class playerManager : MonoBehaviour
     public float boundary = 2.0f;      // Karakterin gidebileceği sınırlar
     private Vector3 currentVelocity = Vector3.zero;
     public GameObject CoinParticlePrefeb;
+    public GameObject BloodParticlePrefeb;
+
     public GameManager gameManager;
 
     void Update()
@@ -37,9 +39,11 @@ public class playerManager : MonoBehaviour
             InstantiateParticle(CoinParticlePrefeb, transform.position);
             // Increase the score
             gameManager.score+=100;
+            gameManager.speedScore+=100;
         }
         else if (col.gameObject.layer == 9)
         {
+            InstantiateParticle(BloodParticlePrefeb, transform.position);
             gameManager.live--;
         }
     }

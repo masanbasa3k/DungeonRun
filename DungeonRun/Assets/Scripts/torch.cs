@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class coin : MonoBehaviour
+public class torch : MonoBehaviour
 {
     // Update is called once per frame
     public GameManager gameManager;
@@ -13,18 +13,18 @@ public class coin : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
         moveSpeed = gameManager.gameSpeed;
+        // check the rotation of the torch
+        if (transform.position.x > 0)
+        {
+            transform.Rotate(0, 180, 0);
+        }
     }
     void Update()
     {
-        moveSpeed = gameManager.gameSpeed;
         // Coin'i aşağı doğru hareket ettir
+        moveSpeed = gameManager.gameSpeed;
         transform.position -= new Vector3(0, 0, moveSpeed * Time.deltaTime);
 
-        // Coin'i Y ekseni etrafında döndür
-        transform.Rotate(0, 200 * Time.deltaTime, 0);
-        
-
-        // Coin z pozisyonu -10'dan küçük olduğunda nesneyi yok et
         if (transform.position.z < -10)
         {
             Destroy(gameObject);

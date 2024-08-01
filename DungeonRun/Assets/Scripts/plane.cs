@@ -20,6 +20,7 @@ public class plane : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        meshRenderer.material.mainTextureOffset += new Vector2(0, -0.1f) * Time.deltaTime * speed;
+        speed = gameManager.gameSpeed;
+        meshRenderer.material.mainTextureOffset += new Vector2(0, -1f) * Time.deltaTime * speed/10;
     }
 }
